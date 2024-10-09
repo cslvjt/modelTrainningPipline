@@ -100,7 +100,7 @@ class DMFF(nn.Module):
         x = feat_prop1 + feat_prop2
         return x
 
-class LWDNet(nn.Module):
+class Net(nn.Module):
     def __init__(self, num_res=[4,12,16], base_channel=32):
         super().__init__()
 
@@ -191,8 +191,8 @@ class Trainer(BaseTrainer):
     def __init__(self, opt):
         
         super().__init__(opt)
-        self.net = LWDNet(num_res=opt["net"]["num_res"],
-                          base_channel=opt["net"]["base_channel"])
+        self.net = Net(num_res=opt["net"]["num_res"],
+                       base_channel=opt["net"]["base_channel"])
         
         self.init_net_params()
         self.init_optimizer()
@@ -309,6 +309,7 @@ if __name__ == "__main__":
     os.makedirs(experiment_root, exist_ok=True)
     ## 将配置文件保存到实验文件夹下
     shutil.copy(args.config_path, experiment_root)
+    shutil.copy("trainer.py", experiment_root)
 
     trainer = Trainer(opt)
     trainer.train()

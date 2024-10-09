@@ -98,7 +98,7 @@ class BaseTrainer():
             raise NotImplementedError(f'Scheduler {scheduler_name} is not implemented yet.')
     
     def init_tensorboard(self):
-        self.writer = SummaryWriter(log_dir=os.path.join(self.experiment_root, "tensorboard"))
+        self.writer = SummaryWriter(log_dir=os.path.join(self.experiment_root, "tb_logger"))
         self.writer.add_text("config", str(self.opt))
     
     def record_loss(self, loss_dict):
