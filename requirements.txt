@@ -1,0 +1,5 @@
+accelerate
+torch
+torchvision
+numpy
+opencv-python
