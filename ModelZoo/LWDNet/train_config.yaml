@@ -1,0 +1,44 @@
+# cmd: CUDA_VISIBLE_DEVICES=6,7 accelerate launch --num_processes 2 --main_process_port 12345 train.py --name LWDNet --config config/LWDNet.yaml
+seed: 100
+dataset:
+  train:
+    dataroot_gt: /data1/lvjiangtao/lvjiangtao/dataset/GoPro_train_latest/train/gt
+    dataroot_lq: /data1/lvjiangtao/lvjiangtao/dataset/GoPro_train_latest/train/blur
+    
+    patch_size: 256
+    num_workers: 8
+    batch_size: 12
+    scale: 1
+    use_hflip: True
+    use_rot: True
+  validation:
+    dataroot_gt: /data1/lvjiangtao/lvjiangtao/dataset/GoPro_train_latest/testmini/gt
+    dataroot_lq: /data1/lvjiangtao/lvjiangtao/dataset/GoPro_train_latest/testmini/blur
+
+net:
+  num_res: [8,12,16]
+  base_channel: 32
+
+train:
+  iters: 300000
+  resume_path: 
+
+  L1loss:
+    weight: 1
+    reduction: mean
+  FFTloss:
+    weight: 0.1
+    reduction: mean
+  optimizer:
+    type: Adam
+    lr: !!float 1e-3
+    weight_decay: 0
+    betas: [0.9,0.99]
+  scheduler:
+    type: CosineAnnealingLR
+    eta_min: !!float 1e-7
+
+val:
+  save_freq: 5000
+  val_freq : 5000
+  print_freq: 1000
