@@ -27,3 +27,6 @@ CUDA_VISIBLE_DEVICES=2,3 accelerate launch --num_processes 2 --main_process_port
 这里主要分为两个部分，一个是模型结构，一个是单步训练loss计算过程
 + 模型结构在Net类中
 + 单步loss计算在trainer.train_step
+
+# 感谢
+本仓库的搭建思路借鉴于[BasicSR](https://github.com/XPixelGroup/BasicSR)
