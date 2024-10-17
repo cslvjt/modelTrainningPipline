@@ -5,10 +5,14 @@ import numpy as np
 import yaml
 import argparse
 from accelerate import Accelerator
-from utils.losses import L1loss, FFTloss
-from utils.logger import build_logger
-from BaseTrainer import BaseTrainer
-from utils.metric_utils import calculate_psnr
+# from utils.losses import L1loss, FFTloss
+# from utils.logger import build_logger
+# from BaseTrainer import BaseTrainer
+# from utils.metric_utils import calculate_psnr
+from ModelTrainPipeline.BaseTrainer import BaseTrainer
+from ModelTrainPipeline.utils.metric_utils import calculate_psnr
+from ModelTrainPipeline.utils.losses import L1loss, FFTloss
+from ModelTrainPipeline.utils.logger import build_logger
 import os
 import shutil
 

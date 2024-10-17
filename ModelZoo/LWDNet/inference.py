@@ -1,8 +1,8 @@
 import torch
 import os
 from trainer import LWDNet
-from utils.img_utils import read_img, save_img
-from utils.metric_utils import calculate_psnr
+from ModelTrainPipeline.utils.img_utils import read_img, save_img
+from ModelTrainPipeline.utils.metric_utils import calculate_psnr
 
 def load_model(model_path):
     model = LWDNet(num_res=[8,12,16], base_channel=32)

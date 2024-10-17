@@ -6,7 +6,7 @@ import numpy as np
 import random
 from accelerate import Accelerator
 from accelerate.utils import set_seed
-from dataloader import build_dataloader
+from dataloader.pairedImageDataloader import build_dataloader
 from utils.logger import build_logger
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.tensorboard import SummaryWriter
