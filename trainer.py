@@ -133,6 +133,7 @@ if __name__ == "__main__":
     assert os.path.isfile(args.config_path), f"{args.config_path} not found!"
     with open(args.config_path, "r") as file:
         opt = yaml.safe_load(file)
+    opt["name"] = args.name
     if args.debug:
         opt["val"]["save_freq"] = 8
         opt["val"]["val_freq"] = 8
